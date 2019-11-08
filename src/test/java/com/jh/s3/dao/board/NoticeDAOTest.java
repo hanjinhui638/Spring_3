@@ -16,6 +16,8 @@ public class NoticeDAOTest extends TestAbstractCase{
 	@Inject
 	private NoticeDAO noticeDAO;
 	
+	
+	
 	//@Test
 	public void checkDAO() throws Exception{
 		assertNotNull(noticeDAO);
@@ -50,7 +52,7 @@ public class NoticeDAOTest extends TestAbstractCase{
 		assertNotNull(noticeVO);
 	}
 	
-	@Test
+	//@Test
 	public void noticeList()throws Exception{
 		List<NoticeVO> list = noticeDAO.noticeList();
 		assertNotEquals(0, list.size());
@@ -65,10 +67,10 @@ public class NoticeDAOTest extends TestAbstractCase{
 	 
 		 noticeVO.setTitle("a1"); 
 		 noticeVO.setContents("aaaa");
+		 noticeVO.setNum(5);
 	 
 		 int result = noticeDAO.noticeUpdate(noticeVO); 
 		 assertEquals(1, result); 
-	 
 	 }
 	
 	 
