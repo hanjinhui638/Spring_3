@@ -2,6 +2,8 @@ package com.jh.s3.dao.board;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.junit.Test;
@@ -22,7 +24,7 @@ public class NoticeDAOTest extends TestAbstractCase{
 	
 	
 	
-	@Test
+	//@Test
 	public void noticeInsertTest() throws Exception{
 		NoticeVO noticeVO = new NoticeVO();
 		
@@ -35,4 +37,42 @@ public class NoticeDAOTest extends TestAbstractCase{
 		
 	}
 
+	//@Test
+	public void noticeDeleteTest()throws Exception{
+		int result = noticeDAO.noticeDelete(2);
+		assertEquals(1, result);
+		
+	}
+	
+	//@Test
+	public void noticeSelect()throws Exception{
+		NoticeVO noticeVO = noticeDAO.noticeSelect(3);
+		assertNotNull(noticeVO);
+	}
+	
+	@Test
+	public void noticeList()throws Exception{
+		List<NoticeVO> list = noticeDAO.noticeList();
+		assertNotEquals(0, list.size());
+	}
+	
+	
+	
+	
+	 @Test 
+	 public void noticeUpdate()throws Exception{ 
+		 NoticeVO noticeVO = new NoticeVO();
+	 
+		 noticeVO.setTitle("a1"); 
+		 noticeVO.setContents("aaaa");
+	 
+		 int result = noticeDAO.noticeUpdate(noticeVO); 
+		 assertEquals(1, result); 
+	 
+	 }
+	
+	 
+	 
+	
+	
 }
