@@ -22,7 +22,7 @@
    <p>CONTENTS: ${noticeDTO.contents} </p>
 	<div id="box">
 		<a class = "btn btn-primary" href="./noticeUpdate?num=${noticeVO.num}">Update</a>
- 		<a class = "btn btn-danger" href="./noticeDeleteResult.jsp?num=${noticeVO.num}">Delete</a>
+ 		<a class = "btn btn-danger" href="./noticeDelete?num=${noticeVO.num}">Delete</a>
 		
 	
 	<%-- <%if(memberDTO !=null && memberDTO.getId().equals(noticeDTO.getWriter())) {%>

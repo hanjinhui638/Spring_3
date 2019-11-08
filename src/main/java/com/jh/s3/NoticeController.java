@@ -25,7 +25,21 @@ public class NoticeController {
 	/* Delete */
 	
 	
-	
+	@RequestMapping("noticeDelete")
+	public ModelAndView noticeDelete(int num) throws Exception{
+		int result = noticeService.noticeDelete(num);
+		ModelAndView mv = new ModelAndView();
+		
+		if(result>0) {
+			mv.addObject("msg", "delete Success");
+		}else {
+			mv.addObject("msg", "delete Fail");
+		}
+		mv.addObject("path", "noticeList");
+		mv.setViewName("common/common_result");
+		
+		return mv;
+	}
 	
 	
 	/* Update */
@@ -64,7 +78,6 @@ public class NoticeController {
 		int result = noticeService.noticeInsert(noticeVO); 
 		ModelAndView mv = new ModelAndView();
 	 		
-		result = 0;
 		if(result>0) {
 			mv.addObject("msg", "Write Success");
 			

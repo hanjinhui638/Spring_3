@@ -22,10 +22,7 @@ public class NoticeDAO {
 	private static final String NAMESPACE = "noticeMapper."; 
 	
 	
-	public void noticeDelete(NoticeVO noticeVO)throws Exception{
-		
-		
-	}
+
 	
 	
 	  public int noticeUpdate(NoticeVO noticeVO)throws Exception{ 
