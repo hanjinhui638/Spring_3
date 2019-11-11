@@ -14,7 +14,12 @@
    
   
   	<select id = "noticeList" resultType="com.jh.s3.model.board.NoticeVO">
-  		select*from notice order by num desc 		<!-- list에 num변수가 없기 때문에 vo에 담아서 list에 넣어줌  -->
+  			<!-- list에 num변수가 없기 때문에 vo에 담아서 list에 넣어줌  -->
+  			
+  			select* from 
+				(select N.*,rownum R from 
+					(select * from notice order by num desc) N)
+			where R between 1 and 10
   	
   	</select>
   

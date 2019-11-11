@@ -12,9 +12,8 @@
 <c:import url="../layout/nav.jsp"/>
 	<!-- <img alt="" src="../resources/images/au53.jpg"> 프론트 ->resources -->
 	
-	<h1>Notice List Page</h1>
 	<div class="container">
-		<h2>Notice List</h2>
+		<h2>NOTICE LIST</h2>
 		<table class="table">
 			<thead>
 				<tr>
