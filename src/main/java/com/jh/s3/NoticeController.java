@@ -1,6 +1,7 @@
 package com.jh.s3;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import com.jh.s3.model.board.NoticeVO;
 import com.jh.s3.service.board.NoticeService;
@@ -119,9 +121,13 @@ public class NoticeController {
 	
 	//List
 	@RequestMapping(value = "noticeList")
-	public void noticeList(Model model) throws Exception{
-		List<NoticeVO> ar = noticeService.noticeList();
+	public void noticeList(Model model, @RequestParam(required = false, defaultValue = "1") int curPage) throws Exception{
+		Map<String, Object> map = noticeService.noticeList(curPage); /* 보내주는 데이터 */
+		List<NoticeVO> ar = (List<NoticeVO>)map.get("list"); 
+		int totalPage = (Integer)map.get("totalPage");
+		
 		model.addAttribute("list",ar);
+		model.addAttribute("totalPage", totalPage);
 	} 
 	
 	

@@ -39,12 +39,21 @@
 			
 			</tbody>
 		</table>
-		
 			<div>
+					<ul class="pagination">
+					<c:forEach begin ="1" end="${totalPage}" var="i">
+						  <li><a href="./noticeList?curPage=${i}">${i}</a></li>
+					</c:forEach>
+					</ul>
+			
+			</div>
+		
+		
+			<%-- <div>
 				<c:forEach begin="1" end = "10" var = "i" varStatus="st">	<!-- 역으로는 안됨 10 9 8 ...  10포함-->
 						${pageScope.i} : ${st.begin} 
 				</c:forEach>		
-			</div>
+			</div> --%>
 			<c:if test="${empty sessionScope.member}">
 				<a href = "./noticeWrite" >Write</a>
 			</c:if>

@@ -29,9 +29,15 @@ public class NoticeDAO {
 		  return sqlSession.update(NAMESPACE+"noticeUpdate", noticeVO);
 	  }
 	 
+	public int noticeCount() throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"noticeCount");
+		
+	}  
+	  
+	  
 	
-	public List<NoticeVO> noticeList()throws Exception{
-		 return sqlSession.selectList(NAMESPACE+"noticeList"); /* 알아서 List 생성 */
+	public List<NoticeVO> noticeList(Map<String, Integer> map)throws Exception{
+		 return sqlSession.selectList(NAMESPACE+"noticeList", map); /* 알아서 List 생성 */
 		
 	}
 	
