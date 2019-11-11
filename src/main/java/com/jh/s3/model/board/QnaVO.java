@@ -2,7 +2,7 @@ package com.jh.s3.model.board;
 
 import java.sql.Date;
 
-public class QnAVO {
+public class QnaVO {
 	private int num;
 	private String title;
 	private String writer;
