@@ -20,7 +20,7 @@
   	
   
   
-  	<select id = "noticeList" resultType="com.jh.s3.model.board.NoticeVO" parameterType="java.util.Map">
+  	<select id = "noticeList" resultType="com.jh.s3.model.board.NoticeVO" parameterType="com.jh.s3.util.RowMaker">
   	
   			<!-- list에 num변수가 없기 때문에 vo에 담아서 list에 넣어줌  -->
 			

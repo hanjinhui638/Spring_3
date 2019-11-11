@@ -41,9 +41,13 @@
 		</table>
 			<div>
 					<ul class="pagination">
-					<c:forEach begin ="1" end="${totalPage}" var="i">
+					<c:if test="${pager.curBlock gt 1}">
+						<li><a href="./noticeList?curPage=${pager.startNum-1}">이전</a></li>
+						</c:if>
+					<c:forEach begin ="${pager.startNum}" end="${pager.lastNum}" var="i">
 						  <li><a href="./noticeList?curPage=${i}">${i}</a></li>
 					</c:forEach>
+						<li><a href="./noticeList?curPage= ${pager.lastNum+1}">다음</a></li>
 					</ul>
 			
 			</div>
@@ -54,9 +58,9 @@
 						${pageScope.i} : ${st.begin} 
 				</c:forEach>		
 			</div> --%>
-			<c:if test="${empty sessionScope.member}">
+			<%-- <c:if test="${empty sessionScope.member}"> --%>
 				<a href = "./noticeWrite" >Write</a>
-			</c:if>
+		<%-- 	</c:if> --%>
 		
 	</div>
 	
