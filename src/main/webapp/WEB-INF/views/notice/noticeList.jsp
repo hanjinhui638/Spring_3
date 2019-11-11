@@ -47,7 +47,9 @@
 					<c:forEach begin ="${pager.startNum}" end="${pager.lastNum}" var="i">
 						  <li><a href="./noticeList?curPage=${i}">${i}</a></li>
 					</c:forEach>
+					<c:if test = "${pager.curBlock lt pager.totalBlock}">
 						<li><a href="./noticeList?curPage= ${pager.lastNum+1}">다음</a></li>
+						</c:if>
 					</ul>
 			
 			</div>

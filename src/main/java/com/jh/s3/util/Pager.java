@@ -7,10 +7,15 @@ public class Pager {
 	private Integer startNum;
 	private Integer lastNum;
 	private Integer curBlock;
+	private Integer totalBlock;
 	
 	
 	
 	
+	public Integer getTotalBlock() {
+		return totalBlock;
+	}
+
 	public Integer getCurBlock() {
 		return curBlock;
 	}
@@ -60,7 +65,7 @@ public class Pager {
 		
 		//3. 전체 블럭의 갯수 
 		int perBlock = 5;
-		int totalBlock = totalPage/perBlock;
+		totalBlock = totalPage/perBlock;
 		if(totalPage%perBlock !=0) {
 				totalBlock++;
 			
@@ -78,6 +83,10 @@ public class Pager {
 		startNum = (curBlock-1)*perBlock+1;
 		lastNum = 	curBlock*perBlock;
 		
+		if(curBlock == totalBlock) {
+			lastNum =totalPage;
+			
+		}
 		
 		
 	}
