@@ -26,16 +26,20 @@ public class NoticeDAOTest extends TestAbstractCase{
 	
 	
 	
-	//@Test
+	@Test
 	public void noticeInsertTest() throws Exception{
+		
+		for(int i=0;i<120;i++) {
 		NoticeVO noticeVO = new NoticeVO();
 		
-		noticeVO.setTitle("a1");
-		noticeVO.setWriter("kk");
-		noticeVO.setContents("aaaa");
+		noticeVO.setTitle("nt"+i);
+		noticeVO.setWriter("nw"+i);
+		noticeVO.setContents("nc"+i);
 		
 		int result = noticeDAO.noticeInsert(noticeVO);
-		assertEquals(1, result);
+		
+		}
+		//assertEquals(1, result);
 		
 	}
 
@@ -61,7 +65,7 @@ public class NoticeDAOTest extends TestAbstractCase{
 	
 	
 	
-	 @Test 
+	 //@Test 
 	 public void noticeUpdate()throws Exception{ 
 		 NoticeVO noticeVO = new NoticeVO();
 	 

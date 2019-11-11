@@ -33,7 +33,8 @@
 					<td><a href = "./noticeSelect?num=${dto.num}">${dto.title}</a></td>
 					<td>${dto.writer}</td>
 					<td>${dto.reg_date}</td>
-					<td>${dto.hit}: ${st.last}</td>
+					<td>${dto.hit}</td>
+				<%-- 	<td>${dto.hit}: ${st.last}</td> --%>
 				</tr>
 				</c:forEach>
 			
