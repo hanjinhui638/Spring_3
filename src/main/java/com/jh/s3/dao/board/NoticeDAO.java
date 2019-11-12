@@ -30,8 +30,8 @@ public class NoticeDAO {
 		  return sqlSession.update(NAMESPACE+"noticeUpdate", noticeVO);
 	  }
 	 
-	public int noticeCount() throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"noticeCount");
+	public int noticeCount(RowMaker rowMaker) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"noticeCount", rowMaker);
 		
 	}  
 	  

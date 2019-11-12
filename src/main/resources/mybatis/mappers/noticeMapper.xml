@@ -13,8 +13,18 @@
   	</update>
    
   
-  	<select id="noticeCount" resultType="java.lang.Integer">
+  
+  	<select id="noticeCount" resultType="java.lang.Integer" parameterType="com.jh.s3.util.RowMaker">
   		select count(num)from notice
+  		<choose>
+  			<when test="kind =='kt'">
+  					where title like '%'||#{search}||'%'
+  			</when>
+  			<otherwise>
+  					where contents like'%'||#{search}||'%'
+  			</otherwise>
+  		
+  		</choose>
   	
   	</select>
   	
@@ -26,7 +36,16 @@
 			
   			select* from 
 				(select N.*,rownum R from 
-					(select * from notice order by num desc) N)
+					(select * from notice 
+					<choose>
+						<when test="kind == 'kt'">
+							where title like '%'||#{search}||'%' <!-- 연결연산자||-->
+						</when>
+						<otherwise>
+							where contents like '%'||#{search}||'%'
+						</otherwise>
+					</choose>
+					order by num desc) N)
 			where R between #{startRow} and #{lastRow}
   	
   	</select>

@@ -4,6 +4,22 @@ public class RowMaker {
 
 	private int startRow;
 	private int lastRow;
+	private String kind; //검색종류 
+	private String search; // 검색어
+	
+	
+	public String getKind() {
+		return kind;
+	}
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
+	public String getSearch() {
+		return search;
+	}
+	public void setSearch(String search) {
+		this.search = search;
+	}
 	
 	
 	public int getStartRow() {

@@ -20,9 +20,9 @@ public class NoticeService {
 	
 	
 	//list
-	public List<NoticeVO> noticeList(Pager pager)throws Exception{
-		RowMaker rowMaker = pager.makeRow();		
-		pager.makePager(noticeDAO.noticeCount());
+	public List<NoticeVO> noticeList(Pager pager, RowMaker rowMaker)throws Exception{
+		pager.makeRow();		
+		pager.makePager(noticeDAO.noticeCount(rowMaker));
 		/*
 		 * TEST
 		 * System.out.println(rowMaker.getStartRow());
