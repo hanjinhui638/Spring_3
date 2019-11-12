@@ -24,8 +24,8 @@ public class QnaDAO {
 	private static final String NAMESPACE = "qnaMapper."; /* 만들어진 String 객체가 없기 떄문에 주입 x static 대문자*/
 
 	
-	public int qnaCount() throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"qnaCount");
+	public int qnaCount(Pager pager) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"qnaCount", pager);
 	
 	}
 

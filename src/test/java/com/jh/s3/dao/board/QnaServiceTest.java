@@ -27,9 +27,9 @@ public class QnaServiceTest extends TestAbstractCase{
 		List<QnaVO> ar = qnaService.qnaList(pager);
 		//assertNotEquals(0, ar.size());
 		//assertEquals(1, (int)pager.getStartRow());
-		//assertEquals(10, (int)pager.getLastRow());
+		//assertEquals(10, (int)pager.getLastRow());0
 		
-		
+	
 		assertEquals(1, (int)pager.getStartNum());
 		assertEquals(5, (int)pager.getLastNum()); 
 	}

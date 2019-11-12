@@ -5,8 +5,20 @@
   
   <mapper namespace="qnaMapper">
   
-  <select id="qnaCount" resultType="java.lang.Integer">
-  		select count(num) from qna
+  <select id="qnaCount" resultType="java.lang.Integer" parameterType="com.jh.s3.util.Pager">
+  		select count(num) from qna 
+  		<choose>
+  					<when test="kind == 'kt'">
+  							where title like '%'||#{search}||'%' 
+  					</when>
+  					<when test = "kind == 'kw'">
+  						where writer like '%'||#{search}||'%' 
+  						
+  					</when>
+  					<otherwise>
+  							where contents like '%'||#{search}||'%' 
+  					</otherwise>
+  		</choose>
   
   </select>
   
@@ -16,14 +28,34 @@
   
   	select*from
   		(select rownum R, Q.* from  <!--  Q.* Q table 모든것 가지고 오기  -->
-  				(select* from qna order by num desc) Q)
+  				(select* from qna 
+  					<choose>
+  						<when test="kind == 'kt'">
+  							where title like '%'||#{search}||'%' 
+  						</when>
+  						<when test = "kind == 'kw'">
+  						where writer like '%'||#{search}||'%' 
+  						
+  						</when>
+  						<otherwise>
+  							where contents like '%'||#{search}||'%' 
+  						</otherwise>
+  					</choose>
+  				order by num desc) Q)
   		where R between #{startRow} and #{lastRow}			<!-- getter가 있을때  -->
+  		
+  		
+  		
+  
+  		
   
   </select>
   
   <insert id="qnaInsert" parameterType="com.jh.s3.model.board.QnaVO">
   		insert into qna
   		values(board_seq.nextval,#{title}, #{writer}, #{contents}, sysdate, 0,0,0,0)
+  		
+  		
   
   </insert>		
 

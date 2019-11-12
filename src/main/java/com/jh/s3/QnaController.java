@@ -23,8 +23,10 @@ public class QnaController {
 	@Inject
 	private QnaService qnaService;
 	
-	@RequestMapping(value = "qnaList", method = RequestMethod.GET)
+	@RequestMapping(value = "qnaList", method = RequestMethod.GET )
 	public ModelAndView qnaList(Pager pager)throws Exception{
+			System.out.println(pager.getKind());
+			System.out.println(pager.getSearch());
 			List<QnaVO> ar = qnaService.qnaList(pager);
 			ModelAndView mv = new ModelAndView();
 			mv.addObject("list", ar);
@@ -34,6 +36,8 @@ public class QnaController {
 			return mv;
 		/*model.addAttribute("list", ar);*/
 	}
+	
+	
 	
 	
 }

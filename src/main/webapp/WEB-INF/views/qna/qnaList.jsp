@@ -6,14 +6,32 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 <c:import url="../layout/bootStrap.jsp"/>
 </head>
 <body>
 <c:import url="../layout/nav.jsp"/>
 	<!-- <img alt="" src="../resources/images/au53.jpg"> 프론트 ->resources -->
-	
 	<div class="container">
 		<h2>QnA List</h2>
+		<div>
+				<form id="frm" action = "./qnaList">
+					<input type="hidden" id="curPage" value="1" name = "curPage">
+					<select name="kind">
+					
+						<option id = "kt" value = "kt">Title</option>
+						<option id = "kc" value = "kc">Contents</option>
+						<option id = "kw" value = "kw">Writer</option>
+					
+					</select>
+				
+					<input type="text" name = "search" value = "${pager.search}">
+					<button>검색</button>		
+				</form>
+		
+		</div>
+		
 		<table class="table">
 			<thead>
 				<tr>
@@ -42,18 +60,18 @@
 			<div>
 					<ul class="pagination">
 					<c:if test="${pager.curBlock gt 1}">
-						<li><a href="./qnaList?curPage=${pager.startNum-1}">[이전]</a></li>
+						<span id="${pager.startNum-1}" class="list">[이전]</span>
 						</c:if>
 					<c:forEach begin ="${pager.startNum}" end="${pager.lastNum}" var="i">
-						  <li><a href="./qnaList?curPage=${i}">${i}</a></li>
+						<%--   <li><a href="./qnaList?curPage=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a></li> --%>
+						  <li><span id="${i}" class="list">${i}</span></li>
 					</c:forEach>
 					<c:if test = "${pager.curBlock lt pager.totalBlock}">
-						<li><a href="./qnaList?curPage= ${pager.lastNum+1}">[다음]</a></li>
+						<li><span id = "${pager.lastNum+1}" class="list">[다음]</span></li>
 						</c:if>
 					</ul>
 			
 			</div>
-		
 		
 			<%-- <div>
 				<c:forEach begin="1" end = "10" var = "i" varStatus="st">	<!-- 역으로는 안됨 10 9 8 ...  10포함-->
@@ -65,6 +83,33 @@
 		<%-- 	</c:if> --%>
 		
 	</div>
+	<script type="text/javascript">
+		var kind ='${pager.kind}';
+		if(kind ==''){
+			kind="kt";
+			
+		}
+		$("#"+kind).prop("selected", true);
+		$(".list").click(function() {
+			$("#curPage").val($(this).attr("id"));
+			$("#frm").submit();
+		});
+	</script>
+	
 	
 </body>
-</html>
+</html>	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

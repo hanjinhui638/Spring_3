@@ -4,7 +4,8 @@ public class Pager {
 	
 	private Integer curPage; 	//현재 페이지번호 jsp에서 넘겨준 데이터 
 	private Integer perPage;	//불러올 글의 갯수 jsp에서 받아옴
-
+	private String kind;	//검색종류
+	private String search; //검색어
 	
 	//DB
 	private Integer startRow;	//시작 rownum
@@ -18,6 +19,30 @@ public class Pager {
 	private Integer curBlock;	//현재 블럭 번호 
 	private Integer totalBlock;	//전체 블럭 번호 
 	
+	public String getKind() {
+		return kind;
+	}
+	
+	
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
+	
+	
+	public String getSearch() {
+		/* search = "%"+search+"%"; */
+		if(search == null) {
+			search ="";
+			
+		}
+		
+		return search;
+	}
+	
+	
+	public void setSearch(String search) {
+		this.search = search;
+	}
 	
 	
 	
@@ -150,10 +175,13 @@ public class Pager {
 		
 		startNum = (curBlock-1)*perBlock+1;
 		lastNum = curBlock*perBlock;
+		
+		
 		if(curBlock == totalBlock) {
 			lastNum = totalPage;
-			
+		
 		}
+		
 	}
 	
 	

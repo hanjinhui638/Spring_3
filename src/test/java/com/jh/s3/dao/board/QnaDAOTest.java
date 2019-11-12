@@ -20,7 +20,7 @@ public class QnaDAOTest extends TestAbstractCase{
 		
 		/* new로 생성하면 sqlSession 주입 x */
 		
-		@Test
+		//@Test
 		public void Test() throws Exception{
 			this.qnaListTest();
 		}
@@ -40,11 +40,11 @@ public class QnaDAOTest extends TestAbstractCase{
 		
 		
 		
-		//@Test
+		@Test
 		public void qnaInsertTest()throws Exception{
 			
-			for(int i=0;i<150;i++) {
 			QnaVO qnaVO = new QnaVO();
+			for(int i=0;i<3;i++) {
 			
 			qnaVO.setTitle("qt"+i);
 			qnaVO.setWriter("qw"+i);
