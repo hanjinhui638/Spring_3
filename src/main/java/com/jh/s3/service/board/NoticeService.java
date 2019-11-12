@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.jh.s3.dao.board.NoticeDAO;
 import com.jh.s3.model.board.NoticeVO;
 import com.jh.s3.util.Pager;
-import com.jh.s3.util.RowMaker;
+
 
 @Service
 public class NoticeService {
@@ -20,15 +20,15 @@ public class NoticeService {
 	
 	
 	//list
-	public List<NoticeVO> noticeList(Pager pager, RowMaker rowMaker)throws Exception{
+	public List<NoticeVO> noticeList(Pager pager)throws Exception{
 		pager.makeRow();		
-		pager.makePager(noticeDAO.noticeCount(rowMaker));
+		pager.makePager(noticeDAO.noticeCount(pager));
 		/*
 		 * TEST
 		 * System.out.println(rowMaker.getStartRow());
 		 * System.out.println(rowMaker.getLastRow());
 		 */
-		 return noticeDAO.noticeList(rowMaker);
+		 return noticeDAO.noticeList(pager);
 	
 	}
 	

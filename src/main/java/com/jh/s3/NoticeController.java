@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.jh.s3.model.board.NoticeVO;
 import com.jh.s3.service.board.NoticeService;
 import com.jh.s3.util.Pager;
-import com.jh.s3.util.RowMaker;
+
 
 @Controller
 @RequestMapping(value = "/notice/**")
@@ -114,12 +114,12 @@ public class NoticeController {
 
 	// List
 	@RequestMapping(value = "noticeList", method = RequestMethod.GET) /* pager 객체 생성 */
-	public void noticeList(Model model, Pager pager, RowMaker rowMaker) throws Exception {
-		List<NoticeVO> ar = noticeService.noticeList(pager, rowMaker);
+	public void noticeList(Model model, Pager pager) throws Exception {
+		List<NoticeVO> ar = noticeService.noticeList(pager);
 		
 		model.addAttribute("list", ar);
 		model.addAttribute("pager", pager);
-		model.addAttribute("rowMaker", rowMaker);
+		
 		
 		
 		

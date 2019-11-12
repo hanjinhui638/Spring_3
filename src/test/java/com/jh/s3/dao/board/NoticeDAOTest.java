@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import com.jh.s3.TestAbstractCase;
 import com.jh.s3.model.board.NoticeVO;
+import com.jh.s3.util.Pager;
 
 public class NoticeDAOTest extends TestAbstractCase{
 	
@@ -26,8 +27,8 @@ public class NoticeDAOTest extends TestAbstractCase{
 	
 	
 	@Test
-	public void noticeCountTest()throws Exception{
-		int count = noticeDAO.noticeCount();
+	public void noticeCountTest(Pager pager)throws Exception{
+		int count = noticeDAO.noticeCount(pager);
 		assertEquals(87, count);
 	}
 	
@@ -64,7 +65,7 @@ public class NoticeDAOTest extends TestAbstractCase{
 	
 	//@Test
 	public void noticeList()throws Exception{
-		List<NoticeVO> list = noticeDAO.noticeList();
+		List<NoticeVO> list = noticeDAO.noticeList(null);
 		assertNotEquals(0, list.size());
 	}
 	

@@ -10,7 +10,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.jh.s3.model.board.NoticeVO;
-import com.jh.s3.util.RowMaker;
+import com.jh.s3.util.Pager;
+
 
 @Repository
 public class NoticeDAO {
@@ -30,15 +31,15 @@ public class NoticeDAO {
 		  return sqlSession.update(NAMESPACE+"noticeUpdate", noticeVO);
 	  }
 	 
-	public int noticeCount(RowMaker rowMaker) throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"noticeCount", rowMaker);
+	public int noticeCount(Pager pager) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"noticeCount", pager);
 		
 	}  
 	  
 	  
 	
-	public List<NoticeVO> noticeList(RowMaker rowMaker)throws Exception{
-		 return sqlSession.selectList(NAMESPACE+"noticeList", rowMaker); /* 알아서 List 생성 */
+	public List<NoticeVO> noticeList(Pager pager)throws Exception{
+		 return sqlSession.selectList(NAMESPACE+"noticeList", pager); /* 알아서 List 생성 */
 		
 	}
 	

@@ -12,7 +12,7 @@ import com.jh.s3.TestAbstractCase;
 import com.jh.s3.model.board.NoticeVO;
 import com.jh.s3.service.board.NoticeService;
 import com.jh.s3.util.Pager;
-import com.jh.s3.util.RowMaker;
+
 
 public class NoticeServiceTest extends TestAbstractCase{
 
@@ -22,12 +22,10 @@ public class NoticeServiceTest extends TestAbstractCase{
 	@Test
 	public void noticeListTest() throws Exception{
 		
-		RowMaker rowMaker = new RowMaker();
 		Pager pager = new Pager();
 		
-		List<NoticeVO> ar = noticeService.noticeList(pager, rowMaker);
-		
-		
+		List<NoticeVO> ar = noticeService.noticeList(pager);
+		assertNotEquals(0, ar.size());
 		
 		
 	}
