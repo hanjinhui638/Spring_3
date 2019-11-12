@@ -60,7 +60,7 @@
 			<div>
 					<ul class="pagination">
 					<c:if test="${pager.curBlock gt 1}">
-						<span id="${pager.startNum-1}" class="list">[이전]</span>
+						<li><span id="${pager.startNum-1}" class="list">[이전]</span></li>
 						</c:if>
 					<c:forEach begin ="${pager.startNum}" end="${pager.lastNum}" var="i">
 						<%--   <li><a href="./qnaList?curPage=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a></li> --%>
