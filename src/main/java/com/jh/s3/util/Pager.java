@@ -18,6 +18,7 @@ public class Pager {
 	private Integer lastNum;	//끝 번호
 	private Integer curBlock;	//현재 블럭 번호 
 	private Integer totalBlock;	//전체 블럭 번호 
+
 	
 	public String getKind() {
 		return kind;
@@ -45,11 +46,9 @@ public class Pager {
 	}
 	
 	
-	
 	public Integer getStartNum() {
 		return startNum;
 	}
-
 
 	public void setStartNum(Integer startNum) {
 		this.startNum = startNum;
@@ -64,6 +63,7 @@ public class Pager {
 	public void setLastNum(Integer lastNum) {
 		this.lastNum = lastNum;
 	}
+
 
 
 	public Integer getCurBlock() {
@@ -99,6 +99,7 @@ public class Pager {
 		return curPage; 
 	 }
 	 
+
 
 	public void setCurPage(Integer curPage) {
 		this.curPage = curPage;
@@ -184,5 +185,6 @@ public class Pager {
 		
 	}
 	
+
 	
 }
