@@ -5,12 +5,19 @@
   
   <mapper namespace="qnaMapper">
   
-  <select id="qnaList" resultType="com.jh.s3.model.board.QnaVO" parameterType="com.jh.s3.util.RowMaker">
+  <select id="qnaCount" resultType="java.lang.Integer">
+  		select count(num) from qna
+  
+  </select>
+  
+<!--   num primary key -->
+  
+  <select id="qnaList" statementType="PREPARED" resultType="com.jh.s3.model.board.QnaVO" parameterType="com.jh.s3.util.Pager">
   
   	select*from
-  		(select Q.*,rownum R from)  <!--  Q.* Q table 모든것 가지고 오기  -->
+  		(select rownum R, Q.* from  <!--  Q.* Q table 모든것 가지고 오기  -->
   				(select* from qna order by num desc) Q)
-  		where R between #{startRow} and #{lastRow}			
+  		where R between #{startRow} and #{lastRow}			<!-- getter가 있을때  -->
   
   </select>
   

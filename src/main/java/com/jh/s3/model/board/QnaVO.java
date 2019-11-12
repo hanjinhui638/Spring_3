@@ -13,7 +13,8 @@ public class QnaVO {
 	private int step;
 	private int depth;
 	
-	
+	/* 데이터를 담는 도구 box*/
+	/* 생성자 필요 디폴트로 자동으로 생성 */
 	
 	public int getNum() {
 		return num;

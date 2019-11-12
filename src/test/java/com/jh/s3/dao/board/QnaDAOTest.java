@@ -1,4 +1,4 @@
-package com.jh.s3;
+package com.jh.s3.dao.board;
 
 import static org.junit.Assert.*;
 
@@ -8,6 +8,7 @@ import javax.inject.Inject;
 
 import org.junit.Test;
 
+import com.jh.s3.TestAbstractCase;
 import com.jh.s3.dao.board.QnaDAO;
 import com.jh.s3.model.board.QnaVO;
 import com.jh.s3.util.RowMaker;
@@ -17,11 +18,27 @@ public class QnaDAOTest extends TestAbstractCase{
 		@Inject
 		private QnaDAO qnaDAO;
 		
-		//@Test
-		public void checkDAO() throws Exception{
+		/* new로 생성하면 sqlSession 주입 x */
+		
+		@Test
+		public void Test() throws Exception{
+			this.qnaListTest();
+		}
+		
+		
+		private void qnaDAOTest() {
+			
 			assertNotNull(qnaDAO);
 			
 		}
+		
+		private void qnaListTest() throws Exception{
+			List<QnaVO> ar = qnaDAO.qnaList();
+			assertNotEquals(0, ar.size());
+			
+		}
+		
+		
 		
 		//@Test
 		public void qnaInsertTest()throws Exception{
@@ -40,11 +57,6 @@ public class QnaDAOTest extends TestAbstractCase{
 			
 		}
 		
-		@Test
-		public void qnaList(RowMaker rowMaker)throws Exception{
-			List<QnaVO> list = qnaDAO.qnaList(rowMaker);
-			assertNotEquals(0, list.size());
-			
-		}
+		
 		
 }

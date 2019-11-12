@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.jh.s3.dao.board.QnaDAO;
 import com.jh.s3.model.board.QnaVO;
 import com.jh.s3.util.Pager;
-import com.jh.s3.util.RowMaker;
 
 @Service
 public class QnaService {
@@ -18,10 +17,14 @@ public class QnaService {
 	private QnaDAO qnaDAO;
 	
 	public List<QnaVO> qnaList(Pager pager)throws Exception{
-		RowMaker rowMaker = pager.makeRow();
-		pager.makePager(qnaDAO.qnaCount());
+		//DB rownum 계산 
 		
-		return qnaDAO.qnaList(rowMaker);
+		
+		
+		pager.makeRow();
+		/* int count = qnaDAO.qnaCount();  여러번 사용할때 */
+		pager.makePager(qnaDAO.qnaCount());
+		return qnaDAO.qnaList(pager);
 		
 	}
 	

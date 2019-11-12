@@ -22,6 +22,8 @@ public class SqlSessionTest extends TestAbstractCase{
 		
 		assertNotNull(sqlSession);
 		
+		
+		/* root-context.xml Test*/
 	}
 	
 
