@@ -23,6 +23,24 @@ public class QnaController {
 	@Inject
 	private QnaService qnaService;
 	
+	
+	@RequestMapping(value = "qnaWrite", method = RequestMethod.POST)
+	public String qnaWrite(QnaVO qnaVO)throws Exception{
+		/*
+		 * System.out.println(qnaVO.getTitle()); System.out.println(qnaVO.getWriter());
+		 * System.out.println(qnaVO.getContents());
+		 */
+		int result = qnaService.qnaWrite(qnaVO);
+		return "redirect:./qnaList";
+		
+	}
+	
+	@RequestMapping(value = "qnaWrite", method = RequestMethod.GET)
+	public void qnaWrite()throws Exception{
+					
+	}
+	
+	
 	@RequestMapping(value = "qnaList", method = RequestMethod.GET )
 	public ModelAndView qnaList(Pager pager)throws Exception{
 			System.out.println(pager.getKind());

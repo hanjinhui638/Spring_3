@@ -70,19 +70,13 @@
 						<li><span id = "${pager.lastNum+1}" class="list">[다음]</span></li>
 						</c:if>
 					</ul>
-			
 			</div>
-		
-			<%-- <div>
-				<c:forEach begin="1" end = "10" var = "i" varStatus="st">	<!-- 역으로는 안됨 10 9 8 ...  10포함-->
-						${pageScope.i} : ${st.begin} 
-				</c:forEach>		
-			</div> --%>
-			<%-- <c:if test="${empty sessionScope.member}"> --%>
-				<a href = "./noticeWrite" >Write</a>
-		<%-- 	</c:if> --%>
+				
+				<a href = "./qnaWrite" >Write</a>
 		
 	</div>
+	
+	
 	<script type="text/javascript">
 		var kind ='${pager.kind}';
 		if(kind ==''){

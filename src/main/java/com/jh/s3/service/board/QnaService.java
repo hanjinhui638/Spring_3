@@ -16,6 +16,11 @@ public class QnaService {
 	@Inject
 	private QnaDAO qnaDAO;
 	
+	public int qnaWrite(QnaVO qnaVO)throws Exception{
+		return qnaDAO.qnaWrite(qnaVO);
+		
+	}
+	
 	public List<QnaVO> qnaList(Pager pager)throws Exception{
 		//DB rownum 계산 
 		
@@ -28,9 +33,6 @@ public class QnaService {
 		
 	}
 	
-	public int qnaInsert(QnaVO qnaVO)throws Exception{
-		return qnaDAO.qnaInsert(qnaVO);
-		
-	}
+	
 	
 }

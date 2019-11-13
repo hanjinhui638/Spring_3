@@ -35,9 +35,9 @@ public class QnaDAO {
 	}
 
 	
-	public int qnaInsert(QnaVO qnaVO) throws Exception{
+	public int qnaWrite(QnaVO qnaVO) throws Exception{
 	
-	return sqlSession.insert(NAMESPACE+"qnaInsert", qnaVO);
+	return sqlSession.insert(NAMESPACE+"qnaWrite", qnaVO);
 	
 	
 }
